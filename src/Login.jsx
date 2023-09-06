@@ -1,28 +1,12 @@
-import { Box, Button, Checkbox, Container, FormControl, FormControlLabel, Grid, TextField, Typography, backdropClasses } from '@mui/material'
+import { Alert, Box, Button, Checkbox, Container, FormControl, FormControlLabel, Grid, TextField, Typography, backdropClasses } from '@mui/material'
 import React from 'react'
-import {createTheme, ThemeProvider} from '@mui/material/styles';
+
 import { useState, useEffect } from 'react';
 import { useNavigate, json } from 'react-router-dom';
 
 
+/* é como o css*/
 
-const theme = createTheme({
-    palette: {
-        mode: 'dark',
-        primary: {
-          main: '#f50057',
-          light: '#ff188b',
-          contrastText: '#ffffff',
-        },
-        secondary: {
-          main: '#ff005a',
-        },
-        background: {
-          default: '#581123',
-          paper: '#581123',
-        },
-      },
-});
 
 function Login() {
 
@@ -34,6 +18,7 @@ const [erro, setErro] = useState(false);
 
 const navigate= useNavigate();
 
+/* o use effect, esta, setando os campos*/
 useEffect( () => {
 
     if(login){
@@ -46,9 +31,10 @@ useEffect( () => {
 
 }, [login]);
 
+/*No autenticar,  */
 function Autenticar(evento){
     evento.preventDefault();
-    fetch("https://api.escuelajs.co/api/v1/auth/login", {
+    fetch("http://10.139.75.32:8080/login", {
         method: "POST",
         headers: {
             'Content-Type': 'application/json'
@@ -56,18 +42,17 @@ function Autenticar(evento){
         body: JSON.stringify(
             {
                 email: email,
-                password: senha
+                senha: senha
             }
         )
     })
     .then((resposta) => resposta.json() )
     .then(( json ) => {
-        if(json.statusCode===401){
-            setErro(true);
-            console.log(email)
+        if(json.user){
+            setLogin(true);
         }
         else{
-            setLogin (true);
+            setErro (true);
     }
      })
     .catch( (erro) => {setErro(true) })
@@ -75,7 +60,7 @@ function Autenticar(evento){
 }
 
   return (
-    <ThemeProvider theme={theme}>
+   
     <Container component="section" maxWidth="xs">
         <Box 
         sx={{ 
@@ -88,6 +73,7 @@ function Autenticar(evento){
             alignItems: "center"
             }}>
                 <Typography component="h1" variant="h5">Entrar</Typography>
+                { erro && (<Alert severity="warning">Revise seus dados e tente novamente</Alert>) } 
             <Box component="form" onSubmit={Autenticar}>
                 <TextField 
                 type="email"
@@ -96,7 +82,9 @@ function Autenticar(evento){
                 margin="normal" 
                 value={email}
                 onChange={(e) => setEmail( e.target.value)}
-                fullWidth/>
+                fullWidth
+                {...erro && ("error")}
+                />
                 <TextField 
                 type="password" 
                 label="Senha" 
@@ -122,7 +110,7 @@ function Autenticar(evento){
             </Box>
         </Box>
     </Container>
-    </ThemeProvider>
+    
   )
 }
 

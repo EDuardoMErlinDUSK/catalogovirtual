@@ -15,7 +15,7 @@ function Filme() {
 
     function CadastrarFilme(evento){
         evento.preventDefault();
-        fetch("http://10.139.75.32:8080/filmes", {
+        fetch( process.env.REACT_APP_BACKEND + "filmes", {
           method: "POST",
           headers: {
               'Content-Type': 'application/json'
@@ -35,7 +35,7 @@ function Filme() {
       .then((resposta) => resposta.json() )
       .then(( json ) => {
           
-        if(json.titulo){
+        if(json._id){
               setCadastro( true);
               setErro (false);
           }
@@ -72,7 +72,7 @@ function Filme() {
         }}>
             <Typography component="h1" variant="h5">Cadastrar Filme</Typography>
             {erro && (<Alert severity="warning" sx={{mt: 2, mb:2}}>Desculpe tente novamente</Alert>)}
-        { cadastro&& (<Alert severity="success" sx={{mt: 2, mb:2}}>Obrigado por cadastrar</Alert>)}
+            {cadastro&& (<Alert severity="success" sx={{mt: 2, mb:2}}>Obrigado por cadastrar</Alert>)}
 
 
         <Box component="form" onSubmit={CadastrarFilme}>

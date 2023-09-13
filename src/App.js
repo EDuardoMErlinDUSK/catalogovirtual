@@ -19,6 +19,28 @@ const [ erro, setErro ] = useState();
   .catch( (erro) => {setErro( true ) } )
   }, [])
 
+function Excluir( evento, id){
+  evento.preventDefault();
+  fetch( process.env.REACT_APP_BACKEND + "filmes", {
+    method: "DELETE",
+    headers: {
+        'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(
+        {
+            id: id
+        }
+    )
+})
+.then((resposta) => resposta.json() )
+.then(( json ) => {
+    const novaLista = filmes.filter ( (filme) => filme._id !== id);
+    setFilmes (novaLista);
+})
+ 
+.catch( (erro) => {setErro(true) })
+}
+
   return (
    <>
    <h1>Filmes</h1>
@@ -26,7 +48,7 @@ const [ erro, setErro ] = useState();
       display: "flex",
       flexFlow:"row",
       flexWrap:"wrap",
-      
+      gap:"2rem"
     }}>
    {filmes && (
     filmes.map((filme, index) => (
@@ -37,14 +59,12 @@ const [ erro, setErro ] = useState();
         ano={filme.ano}
         duracao={filme.duracao}
         categoria={filme.categoria}
+        excluir={ (e) => Excluir( e, filme._id) }
+        id={ filme._id}
       />
     ))
    )}
    </Container>
-    <Button variant="outlined">Outlined</Button>
-    <Button variant="text">Text</Button>
-    <Button variant="contained">Contained</Button>
-    <Avatar alt="Travis Howard" src="/static/images/avatar/2.jpg" />
    </>
   );
 }

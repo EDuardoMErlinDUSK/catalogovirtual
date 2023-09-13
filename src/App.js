@@ -1,4 +1,4 @@
-import { Avatar, Button, Container } from "@mui/material";
+import { Avatar, Button, Container, Box } from "@mui/material";
 import { useEffect, useState } from "react";
 import Filme1 from "./components/filme1";
 
@@ -42,8 +42,23 @@ function Excluir( evento, id){
 }
 
   return (
+    <Container component="section" maxWidth="xs">
+      <Box  sx={{ 
+        mt: 1,
+        backgroundColor: "#ADDC72",
+        padding: "50px",
+        borderRadius: "10px",
+        display:"flex",
+        flexDirection: "column",
+        alignItems: "center"
+        }}>
+
+      <div>
+        
    <>
-   <h1>Filmes</h1>
+
+   <h1>Produtos ☢</h1>
+   <span>Esse é um site de compra e venda de produtos radioativos</span>
     <Container sx={{
       display: "flex",
       flexFlow:"row",
@@ -66,6 +81,9 @@ function Excluir( evento, id){
    )}
    </Container>
    </>
+   </div>
+   </Box>
+   </Container>
   );
 }
 

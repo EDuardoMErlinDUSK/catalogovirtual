@@ -61,14 +61,14 @@ const [erro, setErro] = useState(false);
       <Box
        sx={{ 
         mt: 10,
-        backgroundColor: "rgb(171, 0, 60)",
+        backgroundColor: "#ADDC72",
         padding: "50px",
         borderRadius: "10px",
         display:"flex",
         flexDirection: "column",
         alignItems: "center"
         }}>
-           <Typography component="h1" variant="h5">Cadastrar</Typography>
+           <Typography component="h1" variant="h5">Cadastrar ☢</Typography>
 
         {erro && (<Alert severity="warning" sx={{mt: 2, mb:2}}>Desculpe tente novamente</Alert>)}
         { cadastro&& (<Alert severity="success" sx={{mt: 2, mb:2}}>Obrigado por se cadastrar</Alert>)}

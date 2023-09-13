@@ -80,20 +80,20 @@ function EditaFilme() {
     <Container component="section" maxWidth="xs">
         <Box sx={{ 
         mt: 10,
-        backgroundColor: "rgb(171, 0, 60)",
+        backgroundColor: "#ADDC72",
         padding: "50px",
         borderRadius: "10px",
         display:"flex",
         flexDirection: "column",
         alignItems: "center"
         }}>
-            <Typography component="h1" variant="h5">Editar Filme</Typography>
+            <Typography component="h1" variant="h5">Editar Produto ☢</Typography>
             {erro && (<Alert severity="warning" sx={{mt: 2, mb:2}}>{erro}</Alert>)}
             {cadastro&& (<Alert severity="success" sx={{mt: 2, mb:2}}>Filme editado com sucesso</Alert>)}
 
             <Box component="form" onSubmit={Editar}>
                 <TextField type="text"
-            label="Titulo"
+            label="Nome ☢"
             variant="filled" 
             margin="normal" 
             value={titulo}
@@ -102,25 +102,17 @@ function EditaFilme() {
             />
             <TextField
             type="text"
-            label="Descricao"
+            label="Descriçao ☢"
             variant="filled" 
             margin="normal" 
             value={descricao}
             onChange={(e) => setDescricao( e.target.value)}
             fullWidth
             />
-              <TextField
-            type="number"
-            label="Ano"
-            variant="filled" 
-            margin="normal" 
-            value={ano}
-            onChange={(e) => setAno( e.target.value)}
-            fullWidth
-            />
+             
               <TextField
             type="text"
-            label="Duracao"
+            label="Duraçao do produto ☢"
             variant="filled" 
             margin="normal" 
             value={duracao}
@@ -129,7 +121,7 @@ function EditaFilme() {
             />
               <TextField
             type="text"
-            label="Categoria"
+            label="Categoria ☢"
             variant="filled" 
             margin="normal" 
             value={categoria}
@@ -138,7 +130,7 @@ function EditaFilme() {
             />
               <TextField
             type="text"
-            label="Link da imagem"
+            label="Link da imagem ☢"
             variant="filled" 
             margin="normal" 
             value={imagem}

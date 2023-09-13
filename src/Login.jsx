@@ -65,14 +65,14 @@ function Autenticar(evento){
         <Box 
         sx={{ 
             mt: 10,
-            backgroundColor: "rgb(171, 0, 60)",
+            backgroundColor: "#ADDC72",
             padding: "50px",
             borderRadius: "10px",
             display:"flex",
             flexDirection: "column",
             alignItems: "center"
             }}>
-                <Typography component="h1" variant="h5">Entrar</Typography>
+                <Typography component="h1" variant="h5">Entrar ☢</Typography>
                 { erro && (<Alert severity="warning">Revise seus dados e tente novamente</Alert>) } 
             <Box component="form" onSubmit={Autenticar}>
                 <TextField 

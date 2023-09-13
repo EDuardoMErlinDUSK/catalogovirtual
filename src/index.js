@@ -10,20 +10,19 @@ import EditarFilme from'./components/EditaFilme';
 
 const theme = createTheme({
   palette: {
-      mode: 'dark',
-      primary: {
-        main: '#f50057',
-        light: '#ff188b',
-        contrastText: '#ffffff',
-      },
-      secondary: {
-        main: '#ff005a',
-      },
-      background: {
-        default: '#581123',
-        paper: '#581123',
-      },
+    mode: 'light',
+    primary: {
+      main: '#d5ff3b',
+      light: '#9e9e9e',
     },
+    secondary: {
+      main: '#ff5722',
+    },
+    background: {
+      default: '#5a5a5a',
+      paper: '#fff9c4',
+    },
+  },
 });
 
 

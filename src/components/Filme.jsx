@@ -2,7 +2,7 @@ import { Box, Button, Container, TextField, Typography, Alert, } from '@mui/mate
 import { useState, useEffect } from 'react';
 import React, { } from 'react'
 
-function Filme() {
+function Produto() {
 
     const [titulo, setTitulo] = useState("");
     const [descricao, setDescricao] = useState("");
@@ -15,7 +15,7 @@ function Filme() {
 
     function CadastrarFilme(evento){
         evento.preventDefault();
-        fetch( process.env.REACT_APP_BACKEND + "filmes", {
+        fetch( process.env.REACT_APP_BACKEND + "produto", {
           method: "POST",
           headers: {
               'Content-Type': 'application/json'
@@ -63,14 +63,14 @@ function Filme() {
     <Container component="section" maxWidth="xs">
         <Box sx={{ 
         mt: 10,
-        backgroundColor: "rgb(171, 0, 60)",
+        backgroundColor: "#ADDC72",
         padding: "50px",
         borderRadius: "10px",
         display:"flex",
         flexDirection: "column",
         alignItems: "center"
         }}>
-            <Typography component="h1" variant="h5">Cadastrar Filme</Typography>
+            <Typography component="h1" variant="h5">Cadastrar Produto ☢</Typography>
             {erro && (<Alert severity="warning" sx={{mt: 2, mb:2}}>Desculpe tente novamente</Alert>)}
             {cadastro&& (<Alert severity="success" sx={{mt: 2, mb:2}}>Obrigado por cadastrar</Alert>)}
 
@@ -78,7 +78,7 @@ function Filme() {
         <Box component="form" onSubmit={CadastrarFilme}>
             <TextField
             type="text"
-            label="Titulo"
+            label="Nome ☢"
             variant="filled" 
             margin="normal" 
             value={titulo}
@@ -87,25 +87,17 @@ function Filme() {
             />
               <TextField
             type="text"
-            label="Descricao"
+            label="Descriçao ☢"
             variant="filled" 
             margin="normal" 
             value={descricao}
             onChange={(e) => setDescricao( e.target.value)}
             fullWidth
             />
-              <TextField
-            type="number"
-            label="Ano"
-            variant="filled" 
-            margin="normal" 
-            value={ano}
-            onChange={(e) => setAno( e.target.value)}
-            fullWidth
-            />
+             
               <TextField
             type="text"
-            label="Duracao"
+            label="Duraçao do produto ☢"
             variant="filled" 
             margin="normal" 
             value={duracao}
@@ -114,7 +106,7 @@ function Filme() {
             />
               <TextField
             type="text"
-            label="Categoria"
+            label="Categoria ☢"
             variant="filled" 
             margin="normal" 
             value={categoria}
@@ -123,14 +115,14 @@ function Filme() {
             />
               <TextField
             type="text"
-            label="Link da imagem"
+            label="Link da imagem ☢"
             variant="filled" 
             margin="normal" 
             value={imagem}
             onChange={(e) => setImagem( e.target.value)}
             fullWidth
             />
-            <Button  type="submit" variant="contained" fullWidth sx={{mt: 2, mb: 2}}>Cadastrar Filme</Button>
+            <Button  type="submit" variant="contained" fullWidth sx={{mt: 2, mb: 2}}>Cadastrar Produto</Button>
         </Box>
         </Box>
 
@@ -138,4 +130,4 @@ function Filme() {
   )
 }
 
-export default Filme
+export default Produto

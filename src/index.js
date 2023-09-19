@@ -7,6 +7,7 @@ import {createTheme, ThemeProvider} from '@mui/material/styles';
 import Cadastro from './components/Cadastro';
 import Filme from './components/Filme';
 import EditarFilme from'./components/EditaFilme';
+import CadastarProduto from'./components/CadastrarProduto';
 
 const theme = createTheme({
   palette: {
@@ -20,7 +21,7 @@ const theme = createTheme({
     },
     background: {
       default: '#5a5a5a',
-      paper: '#fff9c4',
+      paper: '#d5ff3b',
     },
   },
 });
@@ -46,6 +47,10 @@ const router = createBrowserRouter([
     {
       path: "/edicao/:id",
       element: <EditarFilme/> 
+    },
+  {
+      path: "/CadastrarProduto",
+      element: <CadastarProduto />
     }
 ]);
 

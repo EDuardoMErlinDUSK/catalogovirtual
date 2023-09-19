@@ -1,6 +1,7 @@
 import { Alert, Box, Button, Checkbox, Container, FormControlLabel, TextField, Typography } from '@mui/material'
 import { useState, useEffect } from 'react';
 import React from 'react'
+import MenuResponsivo from './MenuResponsivo';
 
 function Cadastro() {
 const [nome, setNome] = useState("");
@@ -57,7 +58,10 @@ const [erro, setErro] = useState(false);
   )
 
   return (
+    <>
+    <MenuResponsivo></MenuResponsivo>
     <Container component="section" maxWidth="xs">
+      
       <Box
        sx={{ 
         mt: 10,
@@ -68,7 +72,7 @@ const [erro, setErro] = useState(false);
         flexDirection: "column",
         alignItems: "center"
         }}>
-           <Typography component="h1" variant="h5">Cadastrar ☢</Typography>
+           <Typography component="h1" variant="h5">Cadastrar-se ☣</Typography>
 
         {erro && (<Alert severity="warning" sx={{mt: 2, mb:2}}>Desculpe tente novamente</Alert>)}
         { cadastro&& (<Alert severity="success" sx={{mt: 2, mb:2}}>Obrigado por se cadastrar</Alert>)}
@@ -123,6 +127,7 @@ const [erro, setErro] = useState(false);
               </Box>
       </Box>
     </Container>
+    </>
   )
 }
 

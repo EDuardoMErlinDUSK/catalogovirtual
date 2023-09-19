@@ -1,8 +1,9 @@
-import { Alert, Box, Button, Checkbox, Container, FormControl, FormControlLabel, Grid, TextField, Typography, backdropClasses } from '@mui/material'
+import { Alert, Box, Button, Checkbox, Container, FormControl, FormControlLabel, Grid, TextField, Typography, backdropClasses, Link } from '@mui/material'
 import React from 'react'
-
 import { useState, useEffect } from 'react';
 import { useNavigate, json } from 'react-router-dom';
+import MenuResponsivo from './components/MenuResponsivo';
+;
 
 
 /* é como o css*/
@@ -60,7 +61,8 @@ function Autenticar(evento){
 }
 
   return (
-   
+    <>
+    <MenuResponsivo></MenuResponsivo>
     <Container component="section" maxWidth="xs">
         <Box 
         sx={{ 
@@ -72,7 +74,7 @@ function Autenticar(evento){
             flexDirection: "column",
             alignItems: "center"
             }}>
-                <Typography component="h1" variant="h5">Entrar ☢</Typography>
+                <Typography component="h1" variant="h5">Entrar ☣</Typography>
                 { erro && (<Alert severity="warning">Revise seus dados e tente novamente</Alert>) } 
             <Box component="form" onSubmit={Autenticar}>
                 <TextField 
@@ -103,14 +105,15 @@ function Autenticar(evento){
                     <Grid item xs>
                         esqueci a senha
                     </Grid>
-                    <Grid item>
+                    <Link href="cadastro"><Grid item>
                         cadastrar
                     </Grid>
+                    </Link>
                 </Grid>
             </Box>
         </Box>
     </Container>
-    
+    </>
   )
 }
 

@@ -1,6 +1,8 @@
 import { Avatar, Button, Container, Box } from "@mui/material";
 import { useEffect, useState } from "react";
 import Filme1 from "./components/filme1";
+import MenuResponsivo from "./components/MenuResponsivo";
+import "./Global.css";
 
 function App() {
 
@@ -42,23 +44,28 @@ function Excluir( evento, id){
 }
 
   return (
-    <Container component="section" maxWidth="xs">
+    <>
+    <MenuResponsivo></MenuResponsivo>
+    <Container component="section" >
+     
       <Box  sx={{ 
-        mt: 1,
+        mt: 2,
         backgroundColor: "#ADDC72",
-        padding: "50px",
-        borderRadius: "10px",
+        padding: "25px",
+        borderRadius: "5px",
         display:"flex",
         flexDirection: "column",
         alignItems: "center"
+
         }}>
 
       <div>
         
    <>
+   
 
-   <h1>Produtos ☢</h1>
-   <span>Esse é um site de compra e venda de produtos radioativos</span>
+   <h1>Produtos ☣</h1>
+   <span>Esse é um site clandestino de cadastro de itens radioativos, em prol de experimentos cientificos não administrados pelo governo.</span>
     <Container sx={{
       display: "flex",
       flexFlow:"row",
@@ -84,6 +91,7 @@ function Excluir( evento, id){
    </div>
    </Box>
    </Container>
+   </>
   );
 }
 

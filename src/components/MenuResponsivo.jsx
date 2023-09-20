@@ -68,7 +68,9 @@ function MenuResponsivo() {
                 display: { xs: 'block', md: 'none' },
               }}
             >
-             
+             Cadastrar-se 
+             <br></br>
+             Cadastrar Produto
                 <MenuItem  onClick={handleCloseNavMenu}>
                   <Typography textAlign="center"></Typography>
                 </MenuItem>
@@ -138,7 +140,7 @@ function MenuResponsivo() {
                 </MenuItem></Link>
                 
                 <MenuItem  onClick={handleCloseUserMenu}>
-                   <Typography textAlign="center">Sair</Typography>
+                   <Link sx={{color: "green"}} href="/login"><Typography textAlign="center">Sair</Typography></Link>
                 </MenuItem>
               
             </Menu>

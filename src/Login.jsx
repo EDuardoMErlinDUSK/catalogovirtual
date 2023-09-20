@@ -3,6 +3,7 @@ import React from 'react'
 import { useState, useEffect } from 'react';
 import { useNavigate, json } from 'react-router-dom';
 import MenuResponsivo from './components/MenuResponsivo';
+import BotaoVoltar from './components/BotaoVoltar';
 ;
 
 
@@ -23,7 +24,6 @@ const navigate= useNavigate();
 useEffect( () => {
 
     if(login){
-        localStorage.setItem("usuario", JSON.stringify({email: email}));
         setEmail( "" );
         setSenha ( "" );
         navigate("/");
@@ -50,9 +50,11 @@ function Autenticar(evento){
     .then((resposta) => resposta.json() )
     .then(( json ) => {
         if(json.user){
+            localStorage.setItem( "usuario" , JSON.stringify( json.user._id ) );
             setLogin(true);
         }
         else{
+            localStorage.removeItem( "usuario" );
             setErro (true);
     }
      })
@@ -110,6 +112,7 @@ function Autenticar(evento){
                     </Grid>
                     </Link>
                 </Grid>
+                <BotaoVoltar></BotaoVoltar>
             </Box>
         </Box>
     </Container>

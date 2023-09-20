@@ -1,7 +1,7 @@
 import { Card, CardActionArea, CardContent, CardMedia, Grid, Typography, Button, Link } from '@mui/material'
 import React from 'react'
 
-function filme1(props) {
+function Produto1(props) {
   return (
     <Card sx={{maxWidth: 300, maxHeight:600}}>
         <CardActionArea>
@@ -45,4 +45,4 @@ function filme1(props) {
   )
 }
 
-export default filme1
+export default Produto1

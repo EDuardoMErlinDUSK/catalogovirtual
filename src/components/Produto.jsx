@@ -1,8 +1,6 @@
 import { Box, Button, Container, TextField, Typography, Alert, } from '@mui/material'
 import { useState, useEffect } from 'react';
 import React, { } from 'react'
-import MenuResponsivo from './MenuResponsivo';
-import BotaoVoltar from './BotaoVoltar';
 
 function Produto() {
 
@@ -14,11 +12,10 @@ function Produto() {
     const [imagem, setImagem] = useState("");
     const [cadastro, setCadastro] = useState(false);
     const [erro, setErro] = useState(false);
- 
 
     function CadastrarFilme(evento){
         evento.preventDefault();
-        fetch( process.env.REACT_APP_BACKEND + "produtos", {
+        fetch( process.env.REACT_APP_BACKEND + "produto", {
           method: "POST",
           headers: {
               'Content-Type': 'application/json'
@@ -30,8 +27,7 @@ function Produto() {
                   ano: ano,
                   duracao: duracao,
                   categoria: categoria, 
-                  imagem: imagem,
-                  usuario: localStorage.getItem( "usuario" )
+                  imagem: imagem
     
               }
           )
@@ -64,10 +60,7 @@ function Produto() {
     
 
   return (
-    <>
-    <MenuResponsivo></MenuResponsivo>
     <Container component="section" maxWidth="xs">
-        
         <Box sx={{ 
         mt: 10,
         backgroundColor: "#ADDC72",
@@ -77,7 +70,7 @@ function Produto() {
         flexDirection: "column",
         alignItems: "center"
         }}>
-            <Typography component="h1" variant="h5">Cadastrar Produto ☣</Typography>
+            <Typography component="h1" variant="h5">Cadastrar Produto ☢</Typography>
             {erro && (<Alert severity="warning" sx={{mt: 2, mb:2}}>Desculpe tente novamente</Alert>)}
             {cadastro&& (<Alert severity="success" sx={{mt: 2, mb:2}}>Obrigado por cadastrar</Alert>)}
 
@@ -85,7 +78,7 @@ function Produto() {
         <Box component="form" onSubmit={CadastrarFilme}>
             <TextField
             type="text"
-            label="Nome ☣"
+            label="Nome ☢"
             variant="filled" 
             margin="normal" 
             value={titulo}
@@ -94,7 +87,7 @@ function Produto() {
             />
               <TextField
             type="text"
-            label="Descriçao ☣"
+            label="Descriçao ☢"
             variant="filled" 
             margin="normal" 
             value={descricao}
@@ -104,7 +97,7 @@ function Produto() {
              
               <TextField
             type="text"
-            label="Duraçao do produto ☣"
+            label="Duraçao do produto ☢"
             variant="filled" 
             margin="normal" 
             value={duracao}
@@ -113,7 +106,7 @@ function Produto() {
             />
               <TextField
             type="text"
-            label="Categoria ☣"
+            label="Categoria ☢"
             variant="filled" 
             margin="normal" 
             value={categoria}
@@ -122,7 +115,7 @@ function Produto() {
             />
               <TextField
             type="text"
-            label="Link da imagem ☣"
+            label="Link da imagem ☢"
             variant="filled" 
             margin="normal" 
             value={imagem}
@@ -130,13 +123,10 @@ function Produto() {
             fullWidth
             />
             <Button  type="submit" variant="contained" fullWidth sx={{mt: 2, mb: 2}}>Cadastrar Produto</Button>
-            
         </Box>
-        <BotaoVoltar></BotaoVoltar>
         </Box>
 
     </Container>
-    </>
   )
 }
 

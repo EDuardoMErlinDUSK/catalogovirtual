@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import BotaoVoltar from './BotaoVoltar';
 
-function EditaFilme() {
+function EditarProduto() {
 
     const { id } = useParams();
 
@@ -148,4 +148,4 @@ function EditaFilme() {
   )
 }
 
-export default EditaFilme
+export default EditarProduto

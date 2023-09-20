@@ -8,6 +8,9 @@ import Cadastro from './components/Cadastro';
 import Filme from './components/Filme';
 import EditarFilme from'./components/EditaFilme';
 import CadastarProduto from'./components/CadastrarProduto';
+import EditarProduto from './components/EditarProduto';
+import Produto1 from './components/Produto1';
+import Produto from './components/CadastrarProduto';
 
 const theme = createTheme({
   palette: {
@@ -51,6 +54,18 @@ const router = createBrowserRouter([
   {
       path: "/CadastrarProduto",
       element: <CadastarProduto />
+    },
+    {
+      path: "/EditarProduto",
+      element: <EditarProduto></EditarProduto>
+    },
+    {
+      path: "/Produto1",
+      element: <Produto1></Produto1>
+    },
+    {
+      path: "/Produto",
+      element: <Produto></Produto>
     }
 ]);
 

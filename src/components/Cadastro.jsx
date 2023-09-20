@@ -2,6 +2,7 @@ import { Alert, Box, Button, Checkbox, Container, FormControlLabel, TextField, T
 import { useState, useEffect } from 'react';
 import React from 'react'
 import MenuResponsivo from './MenuResponsivo';
+import BotaoVoltar from './BotaoVoltar';
 
 function Cadastro() {
 const [nome, setNome] = useState("");
@@ -15,7 +16,7 @@ const [erro, setErro] = useState(false);
   function Cadastrar(evento){
 
     evento.preventDefault();
-    fetch( process.env.REACT_APP_BACKEND + "users", {
+    fetch( process.env.REACT_APP_BACKEND + "usuarios", {
       method: "POST",
       headers: {
           'Content-Type': 'application/json'
@@ -125,7 +126,9 @@ const [erro, setErro] = useState(false);
           />
               <Button type="submit" variant="contained" fullWidth sx={{mt: 2, mb: 2}}>Cadastrar-se</Button>
               </Box>
+              <BotaoVoltar></BotaoVoltar>
       </Box>
+     
     </Container>
     </>
   )

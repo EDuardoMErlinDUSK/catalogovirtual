@@ -8,9 +8,10 @@ function App() {
 
 const [filmes, setFilmes ] = useState();
 const [ erro, setErro ] = useState();
+const usuario = localStorage.getItem("usuario");
 
   useEffect(() => {
-    fetch( process.env.REACT_APP_BACKEND + "filmes", {
+    fetch( process.env.REACT_APP_BACKEND +  "produtos/" + usuario, {
       method: "GET",
       headers: {
           'Content-Type': 'application/json'
@@ -23,14 +24,15 @@ const [ erro, setErro ] = useState();
 
 function Excluir( evento, id){
   evento.preventDefault();
-  fetch( process.env.REACT_APP_BACKEND + "filmes", {
+  fetch( process.env.REACT_APP_BACKEND + "produtos " , {
     method: "DELETE",
     headers: {
         'Content-Type': 'application/json'
     },
     body: JSON.stringify(
         {
-            id: id
+            id: id,
+            usuario: usuario
         }
     )
 })
@@ -50,8 +52,10 @@ function Excluir( evento, id){
      
       <Box  sx={{ 
         mt: 2,
+        mb: 2,
         backgroundColor: "#ADDC72",
-        padding: "25px",
+        padding: "5px",
+        paddingBottom: 2,
         borderRadius: "5px",
         display:"flex",
         flexDirection: "column",
@@ -59,16 +63,17 @@ function Excluir( evento, id){
 
         }}>
 
-      <div>
+  
         
-   <>
    
-
+   
    <h1>Produtos ☣</h1>
-   <span>Esse é um site clandestino de cadastro de itens radioativos, em prol de experimentos cientificos não administrados pelo governo.</span>
+   <span>Esse é um site clandestino de cadastro de elementos radioativos, em prol de experimentos cientificos não administrados pelo governo.</span>
+   </Box>
     <Container sx={{
       display: "flex",
       flexFlow:"row",
+      justifyContent: "center",
       flexWrap:"wrap",
       gap:"2rem"
     }}>
@@ -87,9 +92,8 @@ function Excluir( evento, id){
     ))
    )}
    </Container>
-   </>
-   </div>
-   </Box>
+
+   
    </Container>
    </>
   );
